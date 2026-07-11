@@ -25,15 +25,19 @@ bot.on("message", async (msg) => {
 
   try {
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash",
+      model: "gemini-2.5-flash-lite",
     });
 
     const result = await model.generateContent(msg.text);
+    const reply = result.response.text();
 
-    bot.sendMessage(msg.chat.id, result.response.text());
+    bot.sendMessage(msg.chat.id, reply);
   } catch (err) {
     console.error(err);
-    bot.sendMessage(msg.chat.id, "❌ حدث خطأ أثناء الاتصال بالذكاء الاصطناعي.");
+    bot.sendMessage(
+      msg.chat.id,
+      "❌ حدث خطأ أثناء الاتصال بالذكاء الاصطناعي."
+    );
   }
 });
 
