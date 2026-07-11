@@ -1,6 +1,7 @@
 {
   "name": "snox-ai-bot",
   "version": "1.0.0",
+  "type": "module",
   "description": "SNOX AI Telegram Bot",
   "main": "server.js",
   "scripts": {
